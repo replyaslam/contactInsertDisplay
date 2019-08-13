@@ -1,0 +1,11 @@
+<aura:component controller="ContactController" implements="flexipage:availableForAllPageTypes">
+    <h1>        new contact     </h1>
+    <aura:attribute name="newContact" type="contact"
+                    default="{ 'sobjectType': 'Contact' }"
+                    />
+    <aura:registerEvent name="newContEvent" type="c:AddToContactList"/>
+    
+    <lightning:input type="String" name="contactLastName" value="{!v.newContact.LastName}" required="true"/>
+    <lightning:button name="submit" label="Save" onclick="{!c.handleSave}"/>
+
+</aura:component>

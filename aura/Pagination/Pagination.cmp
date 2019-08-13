@@ -1,0 +1,30 @@
+<aura:component>
+    
+    <aura:attribute name="currentPageNumber" type="integer" />
+    <aura:attribute name="totalNumberOfPages" type="integer" />
+    <aura:attribute name="totalNumberOfRecords" type="integer" />
+    <aura:attribute name="sObjectName" type="string" />
+    
+    <!-- component events Previous and Next -->
+   	<aura:registerEvent name="pagePrevious" type="c:PageChangeEvent"/>
+    <aura:registerEvent name="pageNext" type="c:PageChangeEvent"/>
+
+    <lightning:layout>
+        <lightning:layoutItem>
+            <aura:if isTrue="{!v.currentPageNumber>1}">
+                <lightning:button iconName="utility:left" label="Previous" title="Next" onclick="{!c.previousPage}"/>
+            </aura:if>
+        </lightning:layoutItem>
+        
+        <lightning:layoutItem>
+        	{!v.totalNumberOfRecords} &nbsp; {!v.sObjectName} * page {!v.currentPageNumber} of {!v.totalNumberOfPages}
+        </lightning:layoutItem>
+        
+        <lightning:layoutItem>
+            <aura:if isTrue="{!v.currentPageNumber &lt; v.totalNumberOfPages}">
+                <lightning:button iconName="utility:right" label="Next" title="Next" onclick="{!c.nextPage}"/>
+            </aura:if>
+        </lightning:layoutItem>
+        
+    </lightning:layout>    
+</aura:component>
