@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="Event is firred when new contact is inserted">
+	 <aura:attribute name="cont" type="Contact" />
+</aura:event>
