@@ -1,0 +1,14 @@
+/*--------------------------------------------------------
+    Created by : Aslam Iqbal
+    created date : 23-July-2019
+	Description : 
+----------------------------------------------------------*/
+
+global with sharing class SubContactUpdBatchSchedule implements Schedulable
+{
+    global void execute(SchedulableContext sc)
+    { 
+        SubContactUpdBatch cdb=new SubContactUpdBatch();
+        ID batchprocessid = Database.executeBatch(cdb,200);  
+    }
+}
